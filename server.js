@@ -1,6 +1,7 @@
 
+require('dotenv').config({path: __dirname + '/.env'})
 const express = require("express");
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 const cors = require("cors");
 const _ = require("lodash");
 const bodyParser = require("body-parser");
@@ -26,6 +27,7 @@ db.sequelize.sync()
 
 require("./app/routes/user.routes")(app);
 require("./app/routes/bookedFlights.routes")(app);
+require("./flight-api/routes/")(app);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`);
