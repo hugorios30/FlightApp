@@ -5,9 +5,9 @@ import { Routes, Route } from 'react-router-dom';
 import LogIn from './components/Login';
 import Navbar from './components/Navbar';
 import Pricing from './components/FlightList';
+import {themeOptions} from './theme';
 
-
-const theme = createTheme();
+const theme = createTheme(themeOptions);
 
 export interface IAppProps {
 }

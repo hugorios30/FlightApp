@@ -10,25 +10,25 @@ const Navbar: React.FunctionComponent<INavbarProps> = ({theme}) => {
   return (
     <AppBar
     position="static"
-    color="default"
+    color="primary"
     elevation={0}
-    sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+    sx={{ borderBottom: (theme) => `2px solid ${theme.palette.divider}` }}
   >
     <Toolbar sx={{ flexWrap: 'wrap' }}>
-      <Typography color="inherit" noWrap sx={{ flexGrow: 1 }}>
+      <Typography color="secondary" noWrap sx={{ flexGrow: 1 }}>
         Company name
       </Typography>
       <nav>
         <Link
           type="button"
-          color="text.primary"
+          color="white"
           to="/list"
         >
           Features
         </Link>
         <Link
           type="button"
-          color="text.primary"
+          color="white"
           to="/"
           
         >
@@ -36,13 +36,13 @@ const Navbar: React.FunctionComponent<INavbarProps> = ({theme}) => {
         </Link>
         <Link
           type="button"
-          color="text.primary"
+          color="white"
           to="/list"
         >
           Support
         </Link>
       </nav>
-      <Button type="button">
+      <Button type="button" color="secondary">
         <Link to="">
             Login
         </Link>

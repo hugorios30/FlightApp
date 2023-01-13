@@ -38,8 +38,10 @@ export default function LogIn() {
       </Typography>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
         <TextField
+          style={{borderColor: "#e3c40b"}}
           margin="normal"
           required
+          color="primary"
           fullWidth
           id="email"
           label="Email Address"
@@ -48,6 +50,7 @@ export default function LogIn() {
           autoFocus
         />
         <TextField
+          style={{borderColor: "#e3c40b"}}
           margin="normal"
           required
           fullWidth
