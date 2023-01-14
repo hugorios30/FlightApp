@@ -1,16 +1,12 @@
 import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import TextInput from '../UI/TextInput';
 import AccentButton from '../UI/AccentButton';
+
+import UsersDataService from '../../services/users.service'
 
 export interface ILoginProps {
   isNewAccount: boolean,
@@ -20,18 +16,30 @@ export default class Login extends React.Component<ILoginProps> {
 
   constructor(props: ILoginProps) {
     super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  async handleSubmit(e: React.SyntheticEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-  handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-
+    const target = e.target as typeof e.target & {
+      name: {value: string},
+      email: { value: string };
+      password: { value: string };
+    };
+    console.log(target.name.value, target.email.value, target.password.value)
     //SEND DATA TO BACKEND
+    try {
+      if(this.props.isNewAccount){
+        let formData = {name: target.name.value, email: target.email.value, password: target.password.value }
+        const userData = await UsersDataService.create(formData);
+        console.log('JSON DATA', userData)
+      }
+
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   public render() {
@@ -59,17 +67,22 @@ export default class Login extends React.Component<ILoginProps> {
             <TextInput
               label="name"
               id="name"
-              required={true}>
+              name="name"
+              type="text"
+              required={true}
+            >
             </TextInput> : null}
           <TextInput
             name="email"
             label="email"
             id="email"
+            type="email"
             required={true}>
           </TextInput>
           <TextInput
             label="password"
             id="password"
+            type="password"
             required={true}>
           </TextInput>
           <AccentButton
