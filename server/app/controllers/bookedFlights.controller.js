@@ -4,6 +4,7 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new BookedFlight
 exports.create = (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
     // Validate request
     const { flight_id, from_to, date, time, price, user_email} = req.body;
     if (!flight_id || !from_to || !date || !time || !price || !user_email) {
@@ -37,6 +38,7 @@ exports.create = (req, res) => {
 
 // Find a single BookedFlight with an email
 exports.findAll = (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
     const email = req.body.email;
 
   BookedFlight.findAll({where: {user_email: email}})

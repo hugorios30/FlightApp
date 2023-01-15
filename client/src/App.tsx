@@ -16,9 +16,10 @@ render() {
         <ThemeProvider theme={theme}>
             <Container component="main">
             <CssBaseline />
+            <Navbar />
                 <Routes>
                     <Route path='/' element={<LogIn isNewAccount={true}/>} />
-                    <Route path='/list' element={Pricing()} />
+                    <Route path='/search' element={Pricing()} />
                 </Routes>
             </Container>
         </ThemeProvider>

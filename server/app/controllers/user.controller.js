@@ -4,6 +4,7 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new User
 exports.create = (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
     // Validate request
     if (!req.body.name || !req.body.email || !req.body.password) {
         res.status(400).send({
@@ -33,6 +34,7 @@ exports.create = (req, res) => {
 
 // Find a single User with an email
 exports.findOne = (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   console.log(req.data, req.body)
     const email = req.body.email;
 

@@ -10,11 +10,4 @@ module.exports = app => {
   router.get("/", users.findOne);
   
   app.use('/api/users', router);
-  app.use((_req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', '*');
-
-    next();
-  });
-
 };

@@ -14,6 +14,9 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Container from '@mui/material/Container';
+import CityInput from '../UI/CityInput';
+import showCalendar from '../UI/CalendarInput';
+
 
 const tiers = [
   {
@@ -84,7 +87,6 @@ function FlightList() {
     <React.Fragment>
       <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
       <CssBaseline />
-
       {/* Hero unit */}
       <Container disableGutters maxWidth="sm" component="main" sx={{ pt: 8, pb: 6 }}>
         <Typography
@@ -102,6 +104,8 @@ function FlightList() {
           customization.
         </Typography>
       </Container>
+      <CityInput label="From where do you travel" ></CityInput>
+      {showCalendar()}
       {/* End hero unit */}
       <Container maxWidth="md" component="main">
         <Grid container spacing={5} alignItems="flex-end">
