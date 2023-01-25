@@ -4,7 +4,7 @@ import { Container, CssBaseline } from '@mui/material';
 import { Routes, Route } from 'react-router-dom';
 import LogIn from './components/templates/Login';
 import Navbar from './components/templates/Navbar';
-import Pricing from './components/templates/FlightList';
+import Search from './components/templates/SearchForm';
 import {themeOptions} from './theme';
 
 const theme = createTheme(themeOptions);
@@ -18,8 +18,8 @@ render() {
             <CssBaseline />
             <Navbar />
                 <Routes>
-                    <Route path='/' element={<LogIn isNewAccount={true}/>} />
-                    <Route path='/search' element={Pricing()} />
+                    <Route path='/search' element={<LogIn isNewAccount={true}/>} />
+                    <Route path='/' element={Search()} />
                 </Routes>
             </Container>
         </ThemeProvider>
